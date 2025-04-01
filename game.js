@@ -1,4 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
     let startButton = document.getElementById("startGame");
     let screens = document.querySelectorAll(".screen");
     let avatars = document.querySelectorAll(".avatar");
@@ -6,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let scoreElement = document.querySelector(".score span");
     let imagesArea = document.querySelector(".imagesArea");
 
-    let selectedAvatar = null;
+    let selectedAvatarSrc = null;
     let timeLeft = 30;
     let score = 0;
     let gameInterval;
@@ -23,15 +22,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     avatars.forEach((avatar) => {
         avatar.addEventListener("click", () => {
-            selectedAvatar = avatar.querySelector("h5").innerText;
-            console.log(`Selected Avatar: ${selectedAvatar}`);
+            selectedAvatarSrc = avatar.querySelector("img").src;
+            console.log(`Selected Avatar Image: ${selectedAvatarSrc}`);
             showScreen(2);
             startGame();
         });
     });
 
     function startGame() {
-      
         timeLeft = 30;
         score = 0;
         timerElement.innerText = timeLeft;
@@ -48,36 +46,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 endGame();
             }
         }, 1000);
-
         generateImages();
-
-        imageInterval = setInterval(() => {
-            generateImages();
-        }, 2000);
+        imageInterval = setInterval(generateImages, 1000);
     }
 
     function generateImages() {
-     
+        if (!selectedAvatarSrc) return;
 
-        if (imagesArea.children.length < 15) { 
-            let img = document.createElement("img");
-            let randomIndex = Math.floor(Math.random() * 5) + 1;
-           
-           img.src ="./images/images1123.png";   
-            img.alt = "Game Object";
-            img.classList.add("game-object");
+        let img = document.createElement("img");
+        img.src = selectedAvatarSrc;
+        img.classList.add("game-object");
+        img.style.left = getARandomNumber("x") + "px"
+        img.style.top = getARandomNumber("y") + "px"
 
-            img.addEventListener("click", () => {
-                score += 1;
-                scoreElement.innerText = score;
-                img.remove();
-            });
 
-            imagesArea.appendChild(img);
-            
-        } else {
-            console.log("Image limit reached (5)");
-        }
+        img.addEventListener("click", () => {
+            score += 1;
+            scoreElement.innerText = score;
+            img.remove();
+        });
+
+        imagesArea.appendChild(img);
     }
 
     function endGame() {
@@ -85,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         resetGame();
         showScreen(1);
     }
+
 
     function resetGame() {
         clearInterval(gameInterval);
@@ -95,4 +85,17 @@ document.addEventListener("DOMContentLoaded", () => {
         timerElement.innerText = timeLeft;
         scoreElement.innerText = score;
     }
-});
+
+
+function getARandomNumber(axis) {
+
+    const ran = Math.floor(Math.random() * 1440);
+    if (axis === "x") {
+        if (ran < 50 || ran > 1400) return getARandomNumber(axis)
+        else return ran
+    }
+    else {
+        if (ran < 50 || ran > 380) return getARandomNumber(axis)
+        else return ran
+    }
+}
