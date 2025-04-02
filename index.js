@@ -23,7 +23,7 @@
     avatars.forEach((avatar) => {
         avatar.addEventListener("click", () => {
             selectedAvatarSrc = avatar.querySelector("img").src;
-            console.log(`Selected Avatar Image: ${selectedAvatarSrc}`);
+      
             showScreen(2);
             startGame();
         });
@@ -85,20 +85,6 @@
         timerElement.innerText = timeLeft;
         scoreElement.innerText = score;
     }
-
-
-// function getARandomNumber(axis) {
-
-//     const ran = Math.floor(Math.random() * 1440);
-//     if (axis === "x") {
-//         if (ran < 50 || ran > 1400) return getARandomNumber(axis)
-//         else return ran
-//     }
-//     else {
-//         if (ran < 50 || ran > 380) return getARandomNumber(axis)
-//         else return ran
-//     }
-// }
 function getARandomNumber(axis) {
     let area = imagesArea.getBoundingClientRect(); 
     let maxX = area.width - 50;  
