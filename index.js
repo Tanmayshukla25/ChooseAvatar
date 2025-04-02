@@ -87,15 +87,26 @@
     }
 
 
-function getARandomNumber(axis) {
+// function getARandomNumber(axis) {
 
-    const ran = Math.floor(Math.random() * 1440);
+//     const ran = Math.floor(Math.random() * 1440);
+//     if (axis === "x") {
+//         if (ran < 50 || ran > 1400) return getARandomNumber(axis)
+//         else return ran
+//     }
+//     else {
+//         if (ran < 50 || ran > 380) return getARandomNumber(axis)
+//         else return ran
+//     }
+// }
+function getARandomNumber(axis) {
+    let area = imagesArea.getBoundingClientRect(); 
+    let maxX = area.width - 50;  
+    let maxY = area.height - 50; 
+
     if (axis === "x") {
-        if (ran < 50 || ran > 1400) return getARandomNumber(axis)
-        else return ran
-    }
-    else {
-        if (ran < 50 || ran > 380) return getARandomNumber(axis)
-        else return ran
+        return Math.max(10, Math.floor(Math.random() * maxX));
+    } else {
+        return Math.max(10, Math.floor(Math.random() * maxY));
     }
 }
