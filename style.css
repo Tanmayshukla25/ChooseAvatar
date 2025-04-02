@@ -168,6 +168,9 @@ a {
 .score {
   font-size: 20px;
 }
+#ShowScore{
+  font-size: 15px;
+}
 .screen2 {
   font-size: 15px;
   padding: 5px;
@@ -189,6 +192,9 @@ a {
     width: 90vw;
     
   }
+  #ShowScore{
+    font-size: 25px;
+  }
   .screen2 {
     font-size: 28px;
     padding: 10px;
@@ -205,6 +211,9 @@ a {
 @media all and (max-width: 768px) {
   .avatars {
     flex-direction: column;
+  }
+  #ShowScore{
+    font-size: 20px;
   }
   .screen2 {
     font-size: 25px;
