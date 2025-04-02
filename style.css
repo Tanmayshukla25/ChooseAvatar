@@ -169,7 +169,7 @@ a {
 .avatar h5{
   width: 200px;
   text-align: center;
-  margin-left: 20px;
+  margin-left: 15px;
   padding: 5px 0;
 }
 #startGame {
@@ -182,11 +182,33 @@ a {
     width: 90vw;
     
   }
+  .screen2 {
+    font-size: 28px;
+    padding: 10px;
+    height: 100vh;
+  }
+  .avatar h5{
+    width: 200px;
+    text-align: center;
+    margin-left: 15px;
+    padding: 10px 0;
+  }
 }
 
 @media all and (max-width: 768px) {
   .avatars {
     flex-direction: column;
+  }
+  .screen2 {
+    font-size: 25px;
+    padding: 10px;
+    height: 100vh;
+  }
+  .avatar h5{
+    width: 200px;
+    text-align: center;
+    margin-left: 15px;
+    padding: 5px 0;
   }
 
   .avatars .avatar img {
