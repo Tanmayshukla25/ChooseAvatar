@@ -40,7 +40,7 @@
             timeLeft--;
             timerElement.innerText = timeLeft;
 
-            if (timeLeft <= 0) {
+            if (timeLeft < 0) {
                 clearInterval(gameInterval);
                 clearInterval(imageInterval);
                 endGame();

@@ -148,6 +148,7 @@ a {
 @media all and (max-width: 992px) {
   .avatars {
     width: 90vw;
+    
   }
 }
 
