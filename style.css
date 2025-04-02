@@ -17,6 +17,12 @@ a {
   border: unset;
   border-radius: 10px;
 }
+#startGame:hover{
+  scale: 1.2;
+  transition: 0.9s all;
+  box-shadow: 1px 1px 10px white;
+
+}
 
 .screen1 {
   background-image: url(./images/screenimage1.jpg);
