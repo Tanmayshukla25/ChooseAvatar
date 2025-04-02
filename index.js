@@ -4,6 +4,7 @@
     let timerElement = document.querySelector(".timer span");
     let scoreElement = document.querySelector(".score span");
     let imagesArea = document.querySelector(".imagesArea");
+    let ShowScore = document.querySelector("#ShowScore");
 
     let selectedAvatarSrc = null;
     let timeLeft = 30;
@@ -70,20 +71,23 @@
     }
 
     function endGame() {
-        alert(`Time's up! Your final score is: ${score}`);
+        
         resetGame();
         showScreen(1);
     }
-
+   
 
     function resetGame() {
         clearInterval(gameInterval);
         clearInterval(imageInterval);
         imagesArea.innerHTML = "";
         timeLeft = 30;
-        score = 0;
+        // score = 0;
         timerElement.innerText = timeLeft;
         scoreElement.innerText = score;
+        let showOnscreen=`Time's up! Your final score is: ${score}`;
+        ShowScore.innerText=showOnscreen
+    
     }
 function getARandomNumber(axis) {
     let area = imagesArea.getBoundingClientRect(); 
