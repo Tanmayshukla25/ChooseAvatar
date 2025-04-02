@@ -175,6 +175,7 @@ a {
 }
 #ShowScore{
   padding: 20px 0;
+  font-size: 10px;
 }
 .screen2 {
   font-size: 15px;
@@ -198,7 +199,7 @@ a {
     
   }
   #ShowScore{
-    font-size: 25px;
+    font-size: 15px;
     padding: 10px 0px;
   }
   .screen2 {
@@ -219,7 +220,7 @@ a {
     flex-direction: column;
   }
   #ShowScore{
-    font-size: 25px;
+    font-size: 15px;
     padding: 10px 0px;
   }
   .screen2 {
